@@ -1,0 +1,25 @@
+Enter file contents here
+def wordfight(word1, word2):
+	za=[i for i in word1]
+	la=[z for z in word2]
+	yayo=za+la
+	jaja=[j for j in yayo if j in za and j not in la or j not in za and j in la]
+	print 'Survivors:' +str(jaja)
+	word2count=0
+	word1count=0
+	for cnt1 in jaja:
+		if cnt1 in za:
+			word1count=+1
+	for cnt2 in jaja:
+		if cnt2 in la:
+			word2count=+1
+	if word1count>word2count:
+		print 'word1 wins!'
+	if word2count>word1count:
+		print 'word2 wins!'
+	if word1count==word2count:
+		print 'TIED!'
+
+wordfight('zap','bap')
+wordfight('because', 'cause')
+wordfight('isoenzyme', 'apoenzyme')
