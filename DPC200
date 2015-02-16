@@ -1,0 +1,28 @@
+width, height  = raw_input().split()
+width, height = int(width), int(height)
+maze = []
+ 
+for i in xrange(height):
+  maze.append(list(raw_input()))
+ 
+startx, starty, color = raw_input().split()
+startx, starty = int(startx), int(starty)
+ 
+target = maze[startx][starty]
+dirs = ((0, 1), (0, -1), (1, 0), (-1, 0))
+queue = []
+visited = {}
+ 
+queue.append((startx, starty))
+ 
+while len(queue) > 0:
+  x,y = queue.pop(0)
+ 
+  if not visited.get((x, y), False) and maze[y][x] == target:
+    visited[(x, y)] = True
+    maze[y][x] = color
+    neighbours = [((x+dx) % width, (y+dy) % height) for dx,dy in dirs]
+    queue.extend(neighbours)
+ 
+for line in maze:
+  print ''.join(line)
