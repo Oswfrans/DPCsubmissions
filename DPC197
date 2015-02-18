@@ -1,0 +1,22 @@
+def isbnValidator(x):
+	x=list(x)
+	z=[]
+	for i in x:
+		if i=='X':
+			i=10
+			z.append(i)
+		else:
+			i=int(i)
+			z.append(i)
+	print z
+	bla=[i*c for i,c in zip(z,range(10,0,-1))]
+	print bla
+	checker=sum(bla)
+	print checker
+	if checker%11==0:
+		return True
+	else:
+		return False
+
+test='156881111X'
+isbnValidator(test)
