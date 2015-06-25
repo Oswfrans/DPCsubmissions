@@ -1,0 +1,44 @@
+def RepresentsInt(s):
+    try: 
+        int(s)
+        return True
+    except ValueError:
+        return False
+
+def mangleword(s):
+	osaved=list((enumerate(s)))
+	poslist=[]
+	caplist=[]
+	for z in osaved:
+		for k in z:
+			if not RepresentsInt(k):
+				if not k.isalpha():
+					poslist.append(z)
+				else:
+					if not k.islower():
+						caplist.append(z)
+	
+	word=[i.lower() for i in s if i.isalpha()]
+	word=sorted(word)
+	newword=[]
+	
+	caplistlist=[caplist[item][1].lower() for item in range(0, len(caplist))]
+	count=len(caplistlist)
+	for letter in word:
+		if letter in caplistlist and count!=0:
+			letter=letter.upper()
+			count=-1
+		newword.append(letter)
+
+	for i in range(0, len(poslist)):
+		newword.insert(poslist[i][0],poslist[i][1])
+	newword="".join(newword)
+	return newword
+
+def mangle(longstring):
+	shortstringlist=longstring.split()
+	alzo=[mangleword(i) for i in shortstringlist]
+	scrambled=" ".join(alzo)
+	return scrambled
+
+print mangle('For a charm of powerful trouble, like a hell-broth boil and bubble.')
