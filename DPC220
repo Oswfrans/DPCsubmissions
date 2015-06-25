@@ -27,7 +27,7 @@ def mangleword(s):
 	for letter in word:
 		if letter in caplistlist and count!=0:
 			letter=letter.upper()
-			count=-1
+			count-=1
 		newword.append(letter)
 
 	for i in range(0, len(poslist)):
