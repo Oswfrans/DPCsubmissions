@@ -1,0 +1,4 @@
+def garland(w):
+    return next((i for i in reversed(range(len(w))) if w[:i] == w[-i:]))
+
+print garland("alfalfa")
