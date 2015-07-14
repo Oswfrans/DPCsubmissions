@@ -1,0 +1,32 @@
+#balancing words
+#bisection search
+import string
+alphabet= dict(zip(string.ascii_uppercase, range(1,27)))
+
+def calc(letter, word, count,pivot):
+	basevalue=alphabet[letter]
+	#print word.index(initialpivot)
+	distance=abs(count-(pivot))
+	lettervalue=basevalue*distance
+	return lettervalue
+
+def balance(word, pivot):
+	if pivot==0:
+		pivot=initialpivot=int(round(len(word)/2))
+	output=[]
+	count=1
+	for i in word:
+		output.append(calc(i, word, count,pivot))
+		count+=1
+	if sum(output[:pivot])==sum(output[pivot:]):
+		print pivot
+		truepivot=word[pivot-1]
+		return truepivot
+	elif sum(output[:pivot])>sum(output[pivot:]):
+		newpivot=pivot-1
+		return balance(word, newpivot)
+	elif sum(output[:pivot])<sum(output[pivot:]):
+		newpivot=pivot+1
+		return balance(word, newpivot)
+
+print balance("CONSUBSTANTIATION", 0)
