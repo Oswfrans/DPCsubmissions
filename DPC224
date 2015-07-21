@@ -1,0 +1,10 @@
+import random
+
+def shuffle(entry):
+	inputlist=entry.split()
+	outputlist=[]
+	while inputlist:
+		outputlist.append(inputlist.pop(random.randint(0, len(inputlist)-1)))
+	return outputlist
+
+print shuffle("raspberry blackberry nectarine kumquat grapefruit cherry raspberry apple mango persimmon dragonfruit e a i o u")
