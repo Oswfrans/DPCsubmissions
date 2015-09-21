@@ -4,4 +4,31 @@ def is_palindrome(s):
     return ''.join(filter(lambda x: x in string.ascii_letters, s.lower())) == ''.join(filter(lambda x: x in string.ascii_letters, s.lower()))[::-1]
 
 
+def long_palindrome(s):
+	og="".join(filter(lambda x: x in string.ascii_letters, s.lower()))
+	new="".join(filter(lambda x: x in string.ascii_letters, s.lower()))[::-1]
+	if og==new:
+		print "Is a Palindrome"
+	else:
+		print "Not a Palindrome"
+
+def longer_palindrome(s):
+	og=[]
+	new=[]
+	s=s.lower()
+	for i in s:
+		if i in string.ascii_letters:
+			og.append(i)
+			new.append(i)
+	og=''.join(og)
+	new=''.join(new)[::-1]
+	if og==new:
+		print "Is a Palindrome"
+	else:
+		print "Not a Palindrome"
+
+
+
 print is_palindrome("Was it a car or a cat I saw?")
+long_palindrome("Was it a car or a cat I saw?")
+longer_palindrome("Was it a car or a cat I saw?")
