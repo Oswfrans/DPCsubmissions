@@ -1,0 +1,17 @@
+import string
+alphabet= dict(zip(string.ascii_lowercase, range(1,27)))
+
+def order(s):
+	a=[]
+	for i in s:
+		if alphabet[i]<alphabet[i]+1:
+			a.append(True)
+		else:
+			a.append(False)
+	print a
+	if all(z==True for z in a):
+		print "IN ORDER"
+	else:
+		print "OUT OF ORDER"
+
+order("billowy")
