@@ -1,0 +1,7 @@
+import string
+
+def is_palindrome(s):
+    return ''.join(filter(lambda x: x in string.ascii_letters, s.lower())) == ''.join(filter(lambda x: x in string.ascii_letters, s.lower()))[::-1]
+
+
+print is_palindrome("Was it a car or a cat I saw?")
