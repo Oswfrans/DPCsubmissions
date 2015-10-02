@@ -1,0 +1,1 @@
+import itertools; import operator; n,m=6,3; print '\n'.join(sorted('{}={}'.format(reduced, '*'.join(map(str,fangs))) for fangs, reduced in ((fangs, reduce(operator.mul, fangs)) for fangs in itertools.combinations_with_replacement(range(10**(n/m-1), 10**(n/m)), m)) if sorted(str(reduced)) == sorted(''.join(map(str, fangs))) and map(lambda x: str(x)[-1], fangs).count('0') <= 1))
