@@ -1,0 +1,15 @@
+import re
+import random
+
+def typoglycemia(text):
+    def scramble(match):
+        word = match.group()
+        if len(word) < 2:
+            return word
+        first, *middle, last = word
+        random.shuffle(middle)
+        return first + ''.join(middle) + last
+
+    return re.sub(r'[A-Za-z]+', scramble, text)
+
+print(typoglycemia(input()))
