@@ -1,0 +1,35 @@
+from __future__ import print_function
+import random
+import time
+
+def zero_sum_game_of_threes(n, max_time=0.1):
+    start = time.time()
+
+    temp = n
+    seq = []
+
+    while True:
+        while n > 1:
+            r = n % 3
+            d = 0 if r == 0 else random.choice([k for k in [-r, (3 - r)] if n + k > 0])
+            seq.append([n, d])
+            n = (n + d) // 3
+
+        if sum([t[1] for t in seq]) == 0:
+            break
+
+        del seq[:]
+        n = temp
+
+        end = time.time()
+        # if the operation lasts longer than 0.1 s, we're probably not getting anywhere
+        if end - start > max_time:
+            print("IMPOSSIBLE")
+            return
+
+    for s in seq:
+        print(*s)
+    print(1)
+
+
+zero_sum_game_of_threes(929)
